@@ -1,3 +1,6 @@
+const MIN_EXP = 100;
+const MAX_EXP = 12000;
+
 const Hero = {
     heroName: "",
     currentExp: 0, 
@@ -60,4 +63,4 @@ const Hero = {
     }
 };
 
-export {Hero};
+export {Hero, MIN_EXP, MAX_EXP};
