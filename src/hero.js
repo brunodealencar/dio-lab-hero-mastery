@@ -59,7 +59,7 @@ const Hero = {
      * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcRank()' return.
      */
     displayCurrentRank(){
-        console.log(`O Herói de nome ${this.heroName} está no nível de ${this.calcRank(this.currentExp)}`);
+        console.log(`O Herói de nome ${this.heroName} está no nível de ${this.calcRank(this.currentExp)} (${this.currentExp})`);
     }
 };
 
