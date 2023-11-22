@@ -57,10 +57,11 @@ const Hero = {
     },
 
     /**
-     * 
-     * @param {*} winCount 
-     * @param {*} defeatCount 
-     * @returns 
+     * Function to set in each rank | title the 'Hero' instance is related to, based on its 
+     * 'currentRankedStreak' property (winCount - defeatCount).
+     * @param {int} winCount 
+     * @param {int} defeatCount 
+     * @returns string
      */
     calcRankByStreak(winCount, defeatCount){
         /**
@@ -106,7 +107,7 @@ const Hero = {
     },
 
     /**
-     * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcrank()' return.
+     * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcRankByExp()' return.
      */
     displayRankByExp(){
         let rank = this.calcRankByExp(this.currentExp);
@@ -115,9 +116,10 @@ const Hero = {
     },
 
     /**
-     * 
-     * @param {*} winCount 
-     * @param {*} defeatCount 
+     * Function to display a simple message which contains 'Hero.currentRankedStreak' 
+     * value (winCount - defeatCount) and 'Hero.calcRankByStreak()' return.
+     * @param {int} winCount 
+     * @param {int} defeatCount 
      */
     displayRankByStreak(winCount, defeatCount){
         let rank = this.calcRankByStreak(winCount, defeatCount);

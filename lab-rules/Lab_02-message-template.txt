@@ -1,6 +1,8 @@
 #   Rank classifications to be considered when 'calcRankByStreak()' is called
 #   (info. in PT-BR)
 
+    * ENTENDER: 'vitória' -> 'ranked streak';
+
     Se vitórias for menor do que 10 = Ferro
     Se vitórias for entre 11 e 20 = Bronze
     Se vitórias for entre 21 e 50 = Prata
