@@ -9,17 +9,68 @@ Learning repository created for applying an exercise into DIO's Lab structure fr
 
 Here, you'll find a project that's been developed for emphasizing the **programming logic** structure, using **JavaScript** for that.
 
-Basically, it consists on creating a simple object — 'Hero' from 'src/hero.js' — which contains a string and an integer properties — 'heroName' and 'currentExp', respectively). 
+Basically, it consists on creating a simple interaction through terminal/console in order to displaying a custom message, which is based on user's entry.
 
-* Hero.heroName ➡ value typed by user through terminal.
+> **User's interaction** towards the terminal performs according to **"node:readline"** module on 'src/main.js'. For more info. about this module, check [Node.JS Doc](https://nodejs.org/api/readline.html#readline).
+
+The first entry — represented by *labOption* variable — determines which DIO's Lab exercise will be executed, according to the following switch-case:
+
+```
+switch(labOption){
+    case "L1":
+    case "l1":
+        /*
+         *  1st DIO Lab exercise
+         *  
+         *  INTENDED:   display a hero's name and rank-title for a supposed ranked gaming system.
+         *  
+         *              The rank-title is calculated by an XP entry — random generated (Math.random()).
+         */
+         break;
+
+    case "L2":
+    case "l2":
+        /*
+         *  2nd DIO Lab exercise
+         *
+         *  INTENDED:   display a hero's rank-title and streak for a supposed ranked gaming system.
+         *
+         *              The rank-title is calculated by a win streak entry (wins - defeats) — user interaction.
+         */
+         break;
+
+    default:
+        /*
+         *  Abort code execution.
+         */
+         break;
+}
+```
+
 ---
-* Hero.currentExp ➡ random value between MIN_EXP (100) and MAX_EXP (12000).
 
-> The **user interaction** towards 'Hero.heroName' performs according to **"node:readline"** module on **'src/main.js'**.
+If the first exercise is called ("L1" entry on terminal), the simple JavaScript Object — *Hero* — must be instantiated, passing the following property values:
 
-Then, when user has entered a name and the random value has been sorted, it calls an inner method of Hero object that **prompts a standard message on terminal** — stating the current rank-title of the supposed character based on the 'Hero.currentExp' sorted.
+```
+Hero = {
+    heroName: /* passed through terminal <node:readline> */,
+    currentExp: /* from Math.random() */
+}
+``` 
 
->More info. about the rank gap proportions in [lab-rules/message-template.txt](https://github.com/brunodealencar/dio-lab-hero-mastery/blob/main/lab-rules/message-template.txt).
+Then, this object must call 'displayRankByExp()' method so as to show the custom message.
+
+> For checking the **rank-titles** related to 'currentExp' value, access **"/lab-rules/Lab_01-message-template.txt"** in this repository!
+
+If the second exercise is called ("L2" entry on console), the same JavaScript Object must be instantiated, but passing the following values as parameters to:
+```
+Hero.displayRankByStreak(
+    winCount, /* passed through terminal */
+    defeatCount /* passed through terminal as well */
+)
+```
+
+Then, it must call the previous method to display the custom message.
 
 ---
 ### 👨‍💻 Tech elements involved on the project
