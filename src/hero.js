@@ -10,7 +10,7 @@ const Hero = {
      * @param {int} exp Hero.currentExp value.
      * @returns string
      */
-    calcRank(exp){
+    calcRankByExp(exp){
         /**
          * Array that contains the maximum experience needed for each rank. 
          * See more about it on 'lab-rules/message-template.txt'.
@@ -58,8 +58,8 @@ const Hero = {
     /**
      * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcRank()' return.
      */
-    displayCurrentRank(){
-        console.log(`O Herói de nome ${this.heroName} está no nível de ${this.calcRank(this.currentExp)} (${this.currentExp})`);
+    displayRankByExp(){
+        console.log(`O Herói de nome ${this.heroName} está no nível de ${this.calcRankByExp(this.currentExp)} (${this.currentExp})`);
     }
 };
 

@@ -17,6 +17,6 @@ rl.question("Type hero's name: ", (name) => {
     // Assign a random value to 'labEntry.currentExp' between MIN_EXP and MAX_EXP (from src/hero.js)
     labEntry.currentExp = Math.floor(Math.random() * (MAX_EXP - MIN_EXP)) + MIN_EXP;
 
-    labEntry.displayCurrentRank();
+    labEntry.displayRankByExp();
     rl.close();
 })
