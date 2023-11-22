@@ -3,7 +3,8 @@ const MAX_EXP = 12000;
 
 const Hero = {
     heroName: "",
-    currentExp: 0, 
+    currentExp: 0,
+    currentRankedStreak: 0,
 
     /**
      * Function to set in each rank | title the 'Hero' instance is related to, based on its 'currentExp' property.
@@ -13,7 +14,7 @@ const Hero = {
     calcRankByExp(exp){
         /**
          * Array that contains the maximum experience needed for each rank. 
-         * See more about it on 'lab-rules/message-template.txt'.
+         * See more about it on 'lab-rules/Lab_01-message-template.txt'.
          */
         let _rankLimit = [
             1000,   // FERRO
@@ -27,7 +28,7 @@ const Hero = {
         
         /**
          * Array that contains each rank name/title.
-         * See more about it on 'lab-rules/message-template.txt'.
+         * See more about it on 'lab-rules/Lab_01-message-template.txt'.
          */
         let _rankTitle = [
             "FERRO",
@@ -56,10 +57,72 @@ const Hero = {
     },
 
     /**
-     * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcRank()' return.
+     * 
+     * @param {*} winCount 
+     * @param {*} defeatCount 
+     * @returns 
+     */
+    calcRankByStreak(winCount, defeatCount){
+        /**
+         * Array that contains the maximum 'ranked streak' needed for each rank. 
+         * See more about it on 'lab-rules/Lab_02-message-template.txt'.
+         */
+        let _rankLimit = [
+            10,   // FERRO
+            20,   // BRONZE
+            50,   // PRATA
+            80,   // OURO
+            90,   // DIAMANTE
+            100   // LENDÁRIO >> +1 >> IMORTAL
+        ];
+
+        /**
+         * Array that contains each rank name/title.
+         * See more about it on 'lab-rules/Lab_02-message-template.txt'.
+         */
+        let _rankTitle = [
+            "FERRO",
+            "BRONZE",
+            "PRATA",
+            "OURO",
+            "DIAMANTE",
+            "LENDÁRIO",
+            "IMORTAL"
+        ];
+
+        this.currentRankedStreak = winCount - defeatCount;
+
+        let rank;
+        let i = 0;
+
+        while(rank == null && i < _rankLimit.length){
+            rank = (this.currentRankedStreak <= _rankLimit[i]) ? _rankTitle[i] : null;
+            i++; 
+        }
+
+        if (rank == null) rank = _rankTitle[_rankTitle.length-1]
+
+        return rank;
+    },
+
+    /**
+     * Function to diplay a simple message which contains 'Hero.heroName' and 'Hero.calcrank()' return.
      */
     displayRankByExp(){
-        console.log(`O Herói de nome ${this.heroName} está no nível de ${this.calcRankByExp(this.currentExp)} (${this.currentExp})`);
+        let rank = this.calcRankByExp(this.currentExp);
+
+        console.log(`O Herói de nome ${this.heroName} está no nível de ${rank} (${this.currentExp})`);
+    },
+
+    /**
+     * 
+     * @param {*} winCount 
+     * @param {*} defeatCount 
+     */
+    displayRankByStreak(winCount, defeatCount){
+        let rank = this.calcRankByStreak(winCount, defeatCount);
+
+        console.log(`O Herói tem de saldo de ${this.currentRankedStreak} está no nível de ${rank}`)
     }
 };
 
